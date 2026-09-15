@@ -605,7 +605,7 @@ function setupDetailModal() {
   });
 }
 
-function openDetailModal(task) {
+function openDetailModal(task, focusField = 'title') {
   state.selectedTask = task;
   const phase = state.phases.find((p) => p.id === task.phaseId);
 
@@ -627,6 +627,15 @@ function openDetailModal(task) {
   DOM.deleteTaskBtn.classList.remove('hidden');
 
   DOM.taskDetailModal.classList.remove('hidden');
+
+  setTimeout(() => {
+    if (focusField === 'title') {
+      DOM.detailTitleInput.focus();
+      DOM.detailTitleInput.select();
+    } else if (focusField === 'notes') {
+      DOM.detailNotesInput.focus();
+    }
+  }, 50);
 }
 
 // Confirmation Dialog
@@ -871,7 +880,13 @@ function renderTaskItemHtml(task) {
       <!-- Task Details -->
       <div class="task-content">
         <div class="task-header-row">
-          <span class="task-title">${escapeHtml(task.title)}</span>
+          <span class="task-title" title="คลิกเพื่อแก้ไขชื่องาน">${escapeHtml(task.title)}</span>
+          <button class="edit-title-btn" data-id="${task.id}" title="แก้ไขชื่องาน">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+            </svg>
+          </button>
           <span class="task-category-tag">${escapeHtml(task.category || 'General')}</span>
           <span class="task-priority-tag ${priorityClass}">${isHigh ? '🔥 HIGH' : priority}</span>
           ${isDone ? `<span class="done-by-badge">✓ ทำเสร็จโดย ${escapeHtml(task.assignee || state.currentUser)}</span>` : ''}
@@ -1067,7 +1082,16 @@ function attachTaskEventListeners() {
       e.stopPropagation();
       const taskId = btn.dataset.id;
       const task = state.tasks.find((t) => t.id === taskId);
-      if (task) openDetailModal(task);
+      if (task) openDetailModal(task, 'notes');
+    });
+  });
+
+  document.querySelectorAll('.edit-title-btn').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const taskId = btn.dataset.id;
+      const task = state.tasks.find((t) => t.id === taskId);
+      if (task) openDetailModal(task, 'title');
     });
   });
 
@@ -1078,7 +1102,7 @@ function attachTaskEventListeners() {
       }
       const taskId = content.closest('.task-item').dataset.id;
       const task = state.tasks.find((t) => t.id === taskId);
-      if (task) openDetailModal(task);
+      if (task) openDetailModal(task, 'title');
     });
   });
 }

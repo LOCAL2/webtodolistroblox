@@ -936,6 +936,26 @@ body {
   line-height: 1.4;
 }
 
+.edit-title-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--color-text-dim);
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: var(--radius-sm);
+  opacity: 0.6;
+  transition: opacity 150ms ease, color 150ms ease, background 150ms ease;
+}
+
+.edit-title-btn:hover {
+  opacity: 1;
+  color: var(--color-primary-light);
+  background: rgba(255, 255, 255, 0.08);
+}
+
 .task-category-tag {
   font-size: 0.7rem;
   padding: 1px 8px;
