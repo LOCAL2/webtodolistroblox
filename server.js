@@ -1,8 +1,10 @@
+require('dotenv').config();
 const express = require('express');
 const http = require('http');
 const path = require('path');
 const fs = require('fs');
 const WebSocket = require('ws');
+const { createClient } = require('@supabase/supabase-js');
 
 const app = express();
 const server = http.createServer(app);
@@ -17,9 +19,25 @@ const INITIAL_FILE = path.join(DATA_DIR, 'initial-tasks.json');
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Ensure data directory and file exist
+// Ensure data directory exists
 if (!fs.existsSync(DATA_DIR)) {
   fs.mkdirSync(DATA_DIR, { recursive: true });
+}
+
+// Supabase Client Setup
+let supabase = null;
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_KEY;
+
+if (supabaseUrl && supabaseKey && !supabaseUrl.includes('your-project-id')) {
+  try {
+    supabase = createClient(supabaseUrl, supabaseKey);
+    console.log('✅ Supabase Client initialized with credentials from .env');
+  } catch (err) {
+    console.error('⚠️ Failed to initialize Supabase:', err.message);
+  }
+} else {
+  console.log('ℹ️ Running in Local File Mode (Set SUPABASE_URL & SUPABASE_KEY in .env to enable Supabase DB)');
 }
 
 function getInitialData() {
@@ -30,12 +48,12 @@ function getInitialData() {
   return { phases: [], tasks: [], activityLogs: [] };
 }
 
-function loadData() {
+function loadLocalData() {
   try {
     if (!fs.existsSync(DATA_FILE)) {
       const init = getInitialData();
       if (!init.activityLogs) init.activityLogs = [];
-      saveData(init);
+      saveLocalData(init);
       return init;
     }
     const raw = fs.readFileSync(DATA_FILE, 'utf-8');
@@ -48,7 +66,7 @@ function loadData() {
   }
 }
 
-function saveData(data) {
+function saveLocalData(data) {
   try {
     fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2), 'utf-8');
   } catch (err) {
@@ -56,10 +74,74 @@ function saveData(data) {
   }
 }
 
-// Keep a list of active users/peers
+// Cache state in memory for fast 1s updates
+let inMemoryData = loadLocalData();
+
+// Sync with Supabase if connected
+async function syncFromSupabase() {
+  if (!supabase) return;
+  try {
+    const { data: dbTasks, error: taskErr } = await supabase.from('tasks').select('*');
+    const { data: dbLogs, error: logErr } = await supabase.from('activity_logs').select('*').order('timestamp', { ascending: false }).limit(50);
+
+    if (!taskErr && dbTasks && dbTasks.length > 0) {
+      // Map Supabase DB rows to app task objects
+      inMemoryData.tasks = dbTasks.map(t => ({
+        id: t.id,
+        phaseId: t.phase_id,
+        title: t.title,
+        description: t.description || '',
+        category: t.category || '',
+        status: t.status || 'todo',
+        assignee: t.assignee || '',
+        priority: t.priority || 'medium',
+        notes: t.notes || '',
+        completedAt: t.completed_at,
+        updatedBy: t.updated_by || ''
+      }));
+    }
+
+    if (!logErr && dbLogs) {
+      inMemoryData.activityLogs = dbLogs.map(l => ({
+        id: l.id,
+        taskId: l.task_id,
+        taskTitle: l.task_title,
+        phaseId: l.phase_id,
+        user: l.user,
+        action: l.action,
+        timestamp: l.timestamp
+      }));
+    }
+  } catch (err) {
+    console.error('Supabase fetch error:', err.message);
+  }
+}
+
+// Initial sync
+if (supabase) {
+  syncFromSupabase();
+}
+
+// Realtime 1-Second Update Interval
+let lastDataHash = '';
+setInterval(async () => {
+  if (supabase) {
+    await syncFromSupabase();
+  }
+  const currentHash = JSON.stringify(inMemoryData.tasks);
+  if (currentHash !== lastDataHash) {
+    lastDataHash = currentHash;
+    broadcast('INIT', {
+      data: inMemoryData,
+      activeUsers: Array.from(activeClients.values())
+    });
+  }
+}, 1000);
+
+// Keep active users / peers
 const activeClients = new Map(); // ws -> { id, username, color }
 
-function broadcast(type, payload, senderWs = null) {
+function broadcast(type, payload) {
   const message = JSON.stringify({ type, payload });
   wss.clients.forEach((client) => {
     if (client.readyState === WebSocket.OPEN) {
@@ -79,11 +161,10 @@ wss.on('connection', (ws) => {
   activeClients.set(ws, { id: clientId, username: 'Guest', color: '#A78BFA' });
 
   // Send initial data to connected client
-  const currentData = loadData();
   ws.send(JSON.stringify({
     type: 'INIT',
     payload: {
-      data: currentData,
+      data: inMemoryData,
       clientId: clientId,
       activeUsers: Array.from(activeClients.values())
     }
@@ -119,31 +200,29 @@ wss.on('connection', (ws) => {
 
 // REST Endpoints
 app.get('/api/tasks', (req, res) => {
-  const data = loadData();
-  res.json(data);
+  res.json(inMemoryData);
 });
 
-app.patch('/api/tasks/:id', (req, res) => {
+app.patch('/api/tasks/:id', async (req, res) => {
   const taskId = req.params.id;
-  const updates = req.body; // status, assignee, notes, priority, etc.
-  const data = loadData();
+  const updates = req.body;
+  const taskIndex = inMemoryData.tasks.findIndex((t) => t.id === taskId);
 
-  const taskIndex = data.tasks.findIndex((t) => t.id === taskId);
   if (taskIndex === -1) {
     return res.status(404).json({ error: 'Task not found' });
   }
 
-  const previousTask = { ...data.tasks[taskIndex] };
+  const previousTask = { ...inMemoryData.tasks[taskIndex] };
   const updatedTask = { ...previousTask, ...updates };
 
-  // Update completed timestamp
   if (updates.status === 'done' && previousTask.status !== 'done') {
     updatedTask.completedAt = new Date().toISOString();
   } else if (updates.status && updates.status !== 'done') {
     updatedTask.completedAt = null;
   }
 
-  data.tasks[taskIndex] = updatedTask;
+  inMemoryData.tasks[taskIndex] = updatedTask;
+  saveLocalData(inMemoryData);
 
   // Add activity log
   const author = updates.updatedBy || updates.assignee || 'Someone';
@@ -168,26 +247,52 @@ app.patch('/api/tasks/:id', (req, res) => {
     timestamp: new Date().toISOString()
   };
 
-  if (!data.activityLogs) data.activityLogs = [];
-  data.activityLogs.unshift(logEntry);
-  if (data.activityLogs.length > 50) data.activityLogs.pop(); // Keep last 50 logs
+  inMemoryData.activityLogs.unshift(logEntry);
+  if (inMemoryData.activityLogs.length > 50) inMemoryData.activityLogs.pop();
 
-  saveData(data);
+  // Write to Supabase if connected
+  if (supabase) {
+    try {
+      await supabase.from('tasks').upsert({
+        id: updatedTask.id,
+        phase_id: updatedTask.phaseId,
+        title: updatedTask.title,
+        description: updatedTask.description,
+        category: updatedTask.category,
+        status: updatedTask.status,
+        assignee: updatedTask.assignee,
+        priority: updatedTask.priority,
+        notes: updatedTask.notes,
+        completed_at: updatedTask.completedAt,
+        updated_by: updatedTask.updatedBy,
+        updated_at: new Date().toISOString()
+      });
 
-  // Broadcast to all WebSocket clients
+      await supabase.from('activity_logs').insert({
+        id: logEntry.id,
+        task_id: logEntry.taskId,
+        task_title: logEntry.taskTitle,
+        phase_id: logEntry.phaseId,
+        user: logEntry.user,
+        action: logEntry.action,
+        timestamp: logEntry.timestamp
+      });
+    } catch (err) {
+      console.error('Supabase write error:', err.message);
+    }
+  }
+
   broadcast('TASK_UPDATED', { task: updatedTask, log: logEntry });
-
   res.json({ task: updatedTask, log: logEntry });
 });
 
-app.post('/api/tasks', (req, res) => {
+app.post('/api/tasks', async (req, res) => {
   const { phaseId, title, description, category, priority, assignee, notes } = req.body;
 
   if (!phaseId || !title) {
     return res.status(400).json({ error: 'phaseId and title are required' });
   }
 
-  const data = loadData();
   const newTask = {
     id: 'custom-' + Date.now(),
     phaseId,
@@ -201,7 +306,7 @@ app.post('/api/tasks', (req, res) => {
     priority: priority || 'medium'
   };
 
-  data.tasks.push(newTask);
+  inMemoryData.tasks.push(newTask);
 
   const logEntry = {
     id: 'log_' + Date.now(),
@@ -213,25 +318,39 @@ app.post('/api/tasks', (req, res) => {
     timestamp: new Date().toISOString()
   };
 
-  if (!data.activityLogs) data.activityLogs = [];
-  data.activityLogs.unshift(logEntry);
-  saveData(data);
+  inMemoryData.activityLogs.unshift(logEntry);
+  saveLocalData(inMemoryData);
+
+  if (supabase) {
+    try {
+      await supabase.from('tasks').insert({
+        id: newTask.id,
+        phase_id: newTask.phaseId,
+        title: newTask.title,
+        description: newTask.description,
+        category: newTask.category,
+        status: newTask.status,
+        assignee: newTask.assignee,
+        priority: newTask.priority,
+        notes: newTask.notes
+      });
+    } catch (err) {
+      console.error('Supabase insert task error:', err.message);
+    }
+  }
 
   broadcast('TASK_ADDED', { task: newTask, log: logEntry });
-
   res.status(201).json(newTask);
 });
 
-app.delete('/api/tasks/:id', (req, res) => {
+app.delete('/api/tasks/:id', async (req, res) => {
   const taskId = req.params.id;
-  const data = loadData();
-
-  const taskIndex = data.tasks.findIndex((t) => t.id === taskId);
+  const taskIndex = inMemoryData.tasks.findIndex((t) => t.id === taskId);
   if (taskIndex === -1) {
     return res.status(404).json({ error: 'Task not found' });
   }
 
-  const deletedTask = data.tasks.splice(taskIndex, 1)[0];
+  const deletedTask = inMemoryData.tasks.splice(taskIndex, 1)[0];
 
   const logEntry = {
     id: 'log_' + Date.now(),
@@ -243,16 +362,22 @@ app.delete('/api/tasks/:id', (req, res) => {
     timestamp: new Date().toISOString()
   };
 
-  if (!data.activityLogs) data.activityLogs = [];
-  data.activityLogs.unshift(logEntry);
-  saveData(data);
+  inMemoryData.activityLogs.unshift(logEntry);
+  saveLocalData(inMemoryData);
+
+  if (supabase) {
+    try {
+      await supabase.from('tasks').delete().eq('id', taskId);
+    } catch (err) {
+      console.error('Supabase delete task error:', err.message);
+    }
+  }
 
   broadcast('TASK_DELETED', { taskId, log: logEntry });
-
   res.json({ success: true, taskId });
 });
 
-app.post('/api/tasks/reset', (req, res) => {
+app.post('/api/tasks/reset', async (req, res) => {
   const initial = getInitialData();
   initial.activityLogs = [
     {
@@ -265,22 +390,42 @@ app.post('/api/tasks/reset', (req, res) => {
       timestamp: new Date().toISOString()
     }
   ];
-  saveData(initial);
+  inMemoryData = initial;
+  saveLocalData(initial);
+
+  if (supabase) {
+    try {
+      await supabase.from('tasks').delete().neq('id', '');
+      const dbRows = initial.tasks.map(t => ({
+        id: t.id,
+        phase_id: t.phaseId,
+        title: t.title,
+        description: t.description || '',
+        category: t.category || '',
+        status: t.status || 'todo',
+        assignee: t.assignee || '',
+        priority: t.priority || 'medium',
+        notes: t.notes || ''
+      }));
+      await supabase.from('tasks').insert(dbRows);
+    } catch (err) {
+      console.error('Supabase reset error:', err.message);
+    }
+  }
 
   broadcast('DATA_RESET', initial);
   res.json({ success: true, data: initial });
 });
 
 app.get('/api/stats', (req, res) => {
-  const data = loadData();
-  const total = data.tasks.length;
-  const done = data.tasks.filter((t) => t.status === 'done').length;
-  const inProgress = data.tasks.filter((t) => t.status === 'in_progress').length;
-  const testing = data.tasks.filter((t) => t.status === 'testing').length;
-  const todo = data.tasks.filter((t) => t.status === 'todo').length;
+  const total = inMemoryData.tasks.length;
+  const done = inMemoryData.tasks.filter((t) => t.status === 'done').length;
+  const inProgress = inMemoryData.tasks.filter((t) => t.status === 'in_progress').length;
+  const testing = inMemoryData.tasks.filter((t) => t.status === 'testing').length;
+  const todo = inMemoryData.tasks.filter((t) => t.status === 'todo').length;
 
-  const phaseStats = data.phases.map((p) => {
-    const pTasks = data.tasks.filter((t) => t.phaseId === p.id);
+  const phaseStats = inMemoryData.phases.map((p) => {
+    const pTasks = inMemoryData.tasks.filter((t) => t.phaseId === p.id);
     const pDone = pTasks.filter((t) => t.status === 'done').length;
     return {
       phaseId: p.id,
@@ -308,6 +453,6 @@ server.listen(PORT, () => {
   console.log(`====================================================`);
   console.log(`🚀 Roblox Trash to Riches Dev Tracker is running!`);
   console.log(`🌐 Local URL: http://localhost:${PORT}`);
-  console.log(`⚡ WebSocket live sync enabled on port ${PORT}`);
+  console.log(`⚡ Supabase DB Integration & 1s Realtime Sync Ready!`);
   console.log(`====================================================`);
 });
