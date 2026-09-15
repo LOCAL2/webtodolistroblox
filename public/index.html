@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roblox: Trash to Riches — Dev Roadmap & Task Tracker</title>
+  <meta name="description" content="ระบบติดตามและเช็คลิสต์ขั้นตอนการพัฒนาเกม Roblox 'Trash to Riches' ครบ 12 Phase แบบ Real-time สำหรับทีมผู้พัฒนา">
+  
+  <!-- Google Fonts: Fira Code & Fira Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Fira+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Background Cyber Atmosphere -->
+  <div class="cyber-glow-bg"></div>
+  <div class="crt-overlay"></div>
+
+  <!-- Main Container -->
+  <div class="app-container">
+    
+    <!-- Top Navigation & HUD Header -->
+    <header class="hud-header">
+      <div class="header-brand">
+        <div class="logo-icon">
+          <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <div class="project-tag">ROBLOX GAME DEV • 12 PHASES</div>
+          <h1 class="project-title">Trash to Riches <span class="highlight">Roadmap</span></h1>
+        </div>
+      </div>
+
+      <!-- Right Header Actions -->
+      <div class="header-actions">
+        <!-- Live Connection Pill -->
+        <div class="status-pill" id="connectionStatus" title="สถานะการเชื่อมต่อ Real-time">
+          <span class="pulse-dot"></span>
+          <span class="status-label">Connecting...</span>
+        </div>
+
+        <!-- Active User Display Pill -->
+        <button class="current-user-pill" id="openUserModalBtn" title="คลิกเพื่อสลับผู้ใช้งาน (Satang / Time)">
+          <span class="user-avatar" id="userAvatar">S</span>
+          <span class="user-name" id="userNameDisplay">Satang</span>
+        </button>
+
+        <!-- Sound & Activity Buttons -->
+        <button class="icon-btn" id="soundToggleBtn" title="เปิด/ปิดเสียงคลิก">
+          <svg id="soundIconOn" class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+          <svg id="soundIconOff" class="svg-icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+        </button>
+
+        <button class="btn-secondary" id="activityToggleBtn" title="ประวัติการติ๊ก">
+          <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 14 14"></polyline>
+          </svg>
+          <span>Activity</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Global Progress Overview Cards -->
+    <section class="overview-section">
+      <div class="stats-card main-progress-card">
+        <div class="progress-info-row">
+          <div>
+            <div class="card-caption">OVERALL PROGRESS</div>
+            <div class="card-metric"><span id="doneCount">0</span> <span class="metric-total">/ <span id="totalCount">0</span> TASKS</span></div>
+          </div>
+          <div class="percentage-badge" id="percentBadge">0%</div>
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="overallProgressBar" style="width: 0%;"></div>
+        </div>
+        <div class="progress-footer-meta">
+          <span>Loop: เก็บ → กระเป๋าเต็ม → ขาย → ได้เงิน</span>
+          <span id="activePeersCount">1 Devs Online</span>
+        </div>
+      </div>
+
+      <div class="stats-card">
+        <div class="card-caption">IN PROGRESS</div>
+        <div class="card-metric color-warning" id="inProgressCount">0</div>
+        <div class="card-subtext">กำลังดำเนินการพัฒนา</div>
+      </div>
+
+      <div class="stats-card">
+        <div class="card-caption">TESTING / QA</div>
+        <div class="card-metric color-info" id="testingCount">0</div>
+        <div class="card-subtext">รอทดสอบในเกม</div>
+      </div>
+
+      <div class="stats-card">
+        <div class="card-caption">COMPLETED</div>
+        <div class="card-metric color-success" id="completedStatCount">0</div>
+        <div class="card-subtext">เสร็จสมบูรณ์แล้ว</div>
+      </div>
+    </section>
+
+    <!-- Toolbar: Search, Filters, Add Task -->
+    <section class="toolbar-section">
+      <div class="search-box">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="searchInput" placeholder="ค้นหางาน, ระบบ, ไอเทม, บั๊ก...">
+        <button class="clear-search-btn hidden" id="clearSearchBtn" aria-label="ล้างการค้นหา">×</button>
+      </div>
+
+      <div class="filter-group">
+        <!-- Status Filter -->
+        <select class="cyber-select" id="statusFilter" aria-label="กรองตามสถานะ">
+          <option value="all">สถานะทั้งหมด</option>
+          <option value="todo">ยังไม่เริ่ม</option>
+          <option value="in_progress">กำลังทำ</option>
+          <option value="testing">กำลังทดสอบ</option>
+          <option value="done">เสร็จแล้ว</option>
+        </select>
+
+        <!-- Assignee Filter -->
+        <select class="cyber-select" id="assigneeFilter" aria-label="กรองตามผู้ทำ">
+          <option value="all">ทุกคน (All Assignees)</option>
+          <option value="Satang">Satang</option>
+          <option value="Time">Time</option>
+          <option value="unassigned">ยังไม่มีคนรับผิดชอบ</option>
+        </select>
+      </div>
+
+      <div class="action-buttons">
+        <button class="btn-primary" id="openAddTaskBtn">
+          <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          <span>เพิ่ม Task</span>
+        </button>
+        <button class="btn-secondary" id="resetDataBtn" title="รีเซ็ตกลับเป็นค่าเริ่มต้น">
+          <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="1 4 1 10 7 10"></polyline>
+            <polyline points="23 20 23 14 17 14"></polyline>
+            <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
+          </svg>
+          <span>รีเซ็ต</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Phase Quick-Navigator (Horizontal Scroll) -->
+    <nav class="phase-nav-container" aria-label="แถบเลือก Phase">
+      <div class="phase-nav-list" id="phaseNavList">
+        <!-- Dynamically rendered phase tabs -->
+      </div>
+    </nav>
+
+    <!-- Main Content Area: Phase Cards & Task Lists -->
+    <main class="phases-container" id="phasesContainer">
+      <!-- Loading State -->
+      <div class="loading-state" id="loadingState">
+        <div class="cyber-spinner"></div>
+        <p>กำลังเชื่อมต่อระบบฐานข้อมูล Dev Tracker...</p>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="hud-footer">
+      <div class="footer-left">
+        <span>🎮 Roblox Game: <strong>Trash to Riches</strong></span>
+        <span>•</span>
+        <span>Real-time Multi-client Sync Enabled</span>
+      </div>
+      <div class="footer-right">
+        <span>Design based on <strong>ui-ux-pro-max</strong> System</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Activity Drawer / Sidebar -->
+  <div class="drawer-overlay hidden" id="activityDrawerOverlay">
+    <aside class="activity-drawer" id="activityDrawer">
+      <div class="drawer-header">
+        <div class="drawer-title">
+          <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+          <span>Activity Log (บันทึกล่าสุด)</span>
+        </div>
+        <button class="close-drawer-btn" id="closeActivityBtn" aria-label="ปิดบันทึก">×</button>
+      </div>
+      <div class="drawer-content" id="activityList">
+        <!-- Activity items rendered here -->
+      </div>
+    </aside>
+  </div>
+
+  <!-- Add Task Modal -->
+  <div class="modal-overlay hidden" id="addTaskModal">
+    <div class="cyber-modal">
+      <div class="modal-header">
+        <h3 class="modal-title">เพิ่ม Task ใหม่ใน Roadmap</h3>
+        <button class="close-modal-btn" id="closeAddTaskBtn" aria-label="ปิดหน้าต่าง">×</button>
+      </div>
+      <form id="addTaskForm" class="modal-body">
+        <div class="form-group">
+          <label for="taskPhaseSelect">เลือก Phase ที่จะเพิ่ม <span class="required">*</span></label>
+          <select id="taskPhaseSelect" required class="cyber-input"></select>
+        </div>
+
+        <div class="form-group">
+          <label for="taskTitleInput">ชื่องาน / ฟีเจอร์ <span class="required">*</span></label>
+          <input type="text" id="taskTitleInput" required class="cyber-input" placeholder="เช่น ระบบเสียงเตือนเมื่อกระเป๋าเต็ม">
+        </div>
+
+        <div class="form-group">
+          <label for="taskDescInput">คำอธิบายรายละเอียด</label>
+          <textarea id="taskDescInput" rows="3" class="cyber-input" placeholder="รายละเอียดของงาน, Logic ที่ต้องทำ หรือตัวแปร"></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group half">
+            <label for="taskCategoryInput">หมวดหมู่ (Category)</label>
+            <input type="text" id="taskCategoryInput" class="cyber-input" placeholder="เช่น Scripting, UI, Modeling">
+          </div>
+          <div class="form-group half">
+            <label for="taskPrioritySelect">ความสำคัญ (Priority)</label>
+            <select id="taskPrioritySelect" class="cyber-input">
+              <option value="high">High (สำคัญมาก)</option>
+              <option value="medium" selected>Medium (ปกติ)</option>
+              <option value="low">Low (ไม่เร่งด่วน)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="taskAssigneeInput">ผู้รับผิดชอบงาน</label>
+          <input type="text" id="taskAssigneeInput" class="cyber-input" placeholder="Satang หรือ Friend">
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" id="cancelAddTaskBtn">ยกเลิก</button>
+          <button type="submit" class="btn-primary">บันทึก Task</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Task Detail & Edit Modal -->
+  <div class="modal-overlay hidden" id="taskDetailModal">
+    <div class="cyber-modal">
+      <div class="modal-header">
+        <div class="detail-phase-tag" id="detailPhaseTag">Phase 1</div>
+        <button class="close-modal-btn" id="closeDetailModalBtn" aria-label="ปิดหน้าต่าง">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="detailTitleInput">ชื่องาน / ฟีเจอร์ <span class="required">*</span></label>
+          <input type="text" id="detailTitleInput" class="cyber-input" placeholder="ชื่องาน...">
+        </div>
+
+        <div class="form-group">
+          <label for="detailDescInput">คำอธิบายรายละเอียด (Description)</label>
+          <textarea id="detailDescInput" rows="2" class="cyber-input" placeholder="รายละเอียดงาน..."></textarea>
+        </div>
+
+        <div class="detail-meta-grid">
+          <div class="meta-item">
+            <span class="meta-label">หมวดหมู่ (Category)</span>
+            <input type="text" id="detailCategoryInput" class="cyber-input-sm" placeholder="เช่น Player System">
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">สถานะ (Status)</span>
+            <select id="detailStatusSelect" class="cyber-select-sm"></select>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">ผู้รับผิดชอบ</span>
+            <input type="text" id="detailAssigneeInput" class="cyber-input-sm" placeholder="Satang / Time">
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">ความสำคัญ</span>
+            <select id="detailPrioritySelect" class="cyber-select-sm">
+              <option value="high">🔥 High (สำคัญมาก)</option>
+              <option value="medium">Medium (ปกติ)</option>
+              <option value="low">Low (ต่ำ)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="detailNotesInput">บันทึกเพิ่มเติม / ลิ้งค์โค้ด / ข้อตกลง (Notes)</label>
+          <textarea id="detailNotesInput" rows="3" class="cyber-input" placeholder="พิมพ์โน้ตถึงเพื่อน หรือบันทึกบั๊กที่เจอ..."></textarea>
+        </div>
+
+        <div class="modal-actions space-between">
+          <button type="button" class="btn-danger" id="deleteTaskBtn">ลบ Task นี้</button>
+          <div class="right-buttons">
+            <button type="button" class="btn-secondary" id="cancelDetailBtn">ยกเลิก</button>
+            <button type="button" class="btn-primary" id="saveDetailBtn">บันทึกการแก้ไข</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirmation Modal (for reset / delete) -->
+  <div class="modal-overlay hidden" id="confirmModal">
+    <div class="cyber-modal confirm-modal-box">
+      <h3 class="modal-title" id="confirmModalTitle">ยืนยันการดำเนินการ</h3>
+      <p class="confirm-message" id="confirmModalMessage">คุณแน่ใจหรือไม่?</p>
+      <div class="modal-actions">
+        <button type="button" class="btn-secondary" id="confirmCancelBtn">ยกเลิก</button>
+        <button type="button" class="btn-danger" id="confirmOkBtn">ยืนยัน</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- User Select Modal (Who are you?) -->
+  <div class="modal-overlay hidden" id="userSelectModal">
+    <div class="cyber-modal user-select-modal-box">
+      <div class="user-select-header">
+        <h2 class="user-select-title">คุณคือใคร?</h2>
+      </div>
+      <div class="user-select-grid">
+        <button class="user-card-btn" data-name="Satang" data-color="#7C3AED">
+          <div class="user-card-avatar" style="background:#7C3AED;">S</div>
+          <div class="user-card-name">Satang</div>
+          <div class="user-card-role">Developer</div>
+        </button>
+
+        <button class="user-card-btn" data-name="Time" data-color="#3B82F6">
+          <div class="user-card-avatar" style="background:#3B82F6;">T</div>
+          <div class="user-card-name">Time</div>
+          <div class="user-card-role">Co-Developer</div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- App Client Scripts -->
+  <script src="js/app.js"></script>
+</body>
+</html>

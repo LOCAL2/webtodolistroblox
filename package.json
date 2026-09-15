@@ -1,0 +1,17 @@
+{
+  "name": "roblox-trash-to-riches-tracker",
+  "version": "1.0.0",
+  "description": "Real-time collaborative 12-phase dev roadmap tracker for Roblox Trash to Riches game",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "ws": "^8.18.0"
+  },
+  "keywords": ["roblox", "roadmap", "tracker", "checklist", "game-dev"],
+  "author": "",
+  "license": "MIT"
+}
