@@ -173,8 +173,8 @@
     {
       "id": "p1-t6",
       "phaseId": "phase-1",
-      "title": "ระบบเก็บขยะ: เดินชน / ProximityPrompt เพื่อเก็บ",
-      "description": "ตรวจจับ Touch Event หรือ ProximityPrompt เมื่อผู้เล่นเข้าใกล้ขยะ",
+      "title": "ระบบเก็บขยะ: ใช้เมาส์คลิกเพื่อเก็บ (ClickToCollect)",
+      "description": "ตรวจจับ ClickDetector หรือ Mouse Click Event เพื่อคลิกเก็บขยะบนพื้น",
       "category": "Trash Spawning",
       "status": "todo",
       "assignee": "",

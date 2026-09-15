@@ -175,8 +175,8 @@
     {
       "id": "p1-t6",
       "phaseId": "phase-1",
-      "title": "ระบบเก็บขยะ: เดินชน / ProximityPrompt เพื่อเก็บ",
-      "description": "ตรวจจับ Touch Event หรือ ProximityPrompt เมื่อผู้เล่นเข้าใกล้ขยะ",
+      "title": "ระบบเก็บขยะ: ใช้เมาส์คลิกเพื่อเก็บ (ClickToCollect)",
+      "description": "ตรวจจับ ClickDetector หรือ Mouse Click Event เพื่อคลิกเก็บขยะบนพื้น",
       "category": "Trash Spawning",
       "status": "todo",
       "assignee": "",
@@ -1039,6 +1039,24 @@
   ],
   "activityLogs": [
     {
+      "id": "log_1789487686401_mib1",
+      "taskId": "p1-t1",
+      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
+      "phaseId": "phase-1",
+      "user": "Time",
+      "action": "changed \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\" status to todo",
+      "timestamp": "2026-09-15T15:54:46.401Z"
+    },
+    {
+      "id": "log_1789487685605_psal",
+      "taskId": "p1-t1",
+      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
+      "phaseId": "phase-1",
+      "user": "Time",
+      "action": "marked \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\" as Done",
+      "timestamp": "2026-09-15T15:54:45.605Z"
+    },
+    {
       "id": "log_1789487292472_kkcc",
       "taskId": "p1-t1",
       "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
@@ -1469,24 +1487,6 @@
       "user": "Satang",
       "action": "updated \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\"",
       "timestamp": "2026-09-15T15:42:11.389Z"
-    },
-    {
-      "id": "log_1789486930506_iwfi",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Satang",
-      "action": "updated \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\"",
-      "timestamp": "2026-09-15T15:42:10.506Z"
-    },
-    {
-      "id": "log_1789486930086_qp4p",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Satang",
-      "action": "updated \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\"",
-      "timestamp": "2026-09-15T15:42:10.086Z"
     }
   ]
 }
