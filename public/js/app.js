@@ -202,54 +202,94 @@ function showToast(message, type = 'info') {
   }, 3500);
 }
 
-// WebSocket Connection Setup
+// REST Fetch & Polling Fallback for Vercel Serverless
+let pollTimer = null;
+
+async function fetchTasks() {
+  try {
+    const res = await fetch('/api/tasks');
+    if (res.ok) {
+      const data = await res.json();
+      state.phases = data.phases || state.phases || [];
+      state.tasks = data.tasks || [];
+      state.activityLogs = data.activityLogs || [];
+      renderAll();
+    }
+  } catch (err) {
+    console.error('Fetch tasks error:', err);
+  }
+}
+
+// WebSocket Connection Setup with Smart Vercel Fallback
 let ws = null;
-let reconnectTimer = null;
+let isVercel = window.location.hostname.includes('vercel.app');
 
 function connectWebSocket() {
+  // Fetch initial data via REST HTTP
+  fetchTasks();
+
+  if (isVercel) {
+    // Vercel Serverless Mode: Use HTTP + Supabase 1.5s Polling (No WS connection errors!)
+    updateConnectionUI(true, 'Supabase Sync Active');
+    if (!pollTimer) {
+      pollTimer = setInterval(fetchTasks, 1500);
+    }
+    return;
+  }
+
+  // Local / Custom Server Mode
   const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
   const wsUrl = `${protocol}//${window.location.host}`;
 
-  ws = new WebSocket(wsUrl);
+  try {
+    ws = new WebSocket(wsUrl);
 
-  ws.onopen = () => {
-    state.wsConnected = true;
-    updateConnectionUI(true);
-    sendUserIdentity();
-  };
+    ws.onopen = () => {
+      state.wsConnected = true;
+      updateConnectionUI(true, 'Live Sync Connected');
+      sendUserIdentity();
+    };
 
-  ws.onmessage = (event) => {
-    try {
-      const msg = JSON.parse(event.data);
-      handleWebSocketMessage(msg);
-    } catch (e) {
-      console.error('Failed to parse WS message:', e);
+    ws.onmessage = (event) => {
+      try {
+        const msg = JSON.parse(event.data);
+        handleWebSocketMessage(msg);
+      } catch (e) {}
+    };
+
+    ws.onclose = () => {
+      state.wsConnected = false;
+      updateConnectionUI(true, 'Supabase Sync Active');
+      if (!pollTimer) {
+        pollTimer = setInterval(fetchTasks, 1500);
+      }
+    };
+
+    ws.onerror = () => {
+      state.wsConnected = false;
+      updateConnectionUI(true, 'Supabase Sync Active');
+      if (!pollTimer) {
+        pollTimer = setInterval(fetchTasks, 1500);
+      }
+    };
+  } catch (e) {
+    updateConnectionUI(true, 'Supabase Sync Active');
+    if (!pollTimer) {
+      pollTimer = setInterval(fetchTasks, 1500);
     }
-  };
-
-  ws.onclose = () => {
-    state.wsConnected = false;
-    updateConnectionUI(false);
-    clearTimeout(reconnectTimer);
-    reconnectTimer = setTimeout(connectWebSocket, 2500);
-  };
-
-  ws.onerror = () => {
-    state.wsConnected = false;
-    updateConnectionUI(false);
-  };
+  }
 }
 
-function updateConnectionUI(connected) {
+function updateConnectionUI(connected, customText = null) {
   if (!DOM.connectionStatus) return;
   if (connected) {
     DOM.connectionStatus.classList.add('connected');
     const lbl = DOM.connectionStatus.querySelector('.status-label');
-    if (lbl) lbl.textContent = 'Live Sync Connected';
+    if (lbl) lbl.textContent = customText || 'Live Sync Connected';
   } else {
     DOM.connectionStatus.classList.remove('connected');
     const lbl = DOM.connectionStatus.querySelector('.status-label');
-    if (lbl) lbl.textContent = 'Connecting...';
+    if (lbl) lbl.textContent = customText || 'Connecting...';
   }
 }
 
@@ -678,6 +718,7 @@ async function patchTask(taskId, updates) {
       body: JSON.stringify(updates)
     });
     if (!res.ok) throw new Error('Failed to update task');
+    setTimeout(fetchTasks, 150);
   } catch (err) {
     console.error('Error updating task:', err);
     showToast('ไม่สามารถอัปเดตงานได้ กรุณาลองใหม่', 'danger');
