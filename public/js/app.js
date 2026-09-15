@@ -937,7 +937,7 @@ function renderTaskItemHtml(task) {
           </button>
           <span class="task-category-tag">${escapeHtml(task.category || 'General')}</span>
           <span class="task-priority-tag ${priorityClass}">${isHigh ? '🔥 HIGH' : priority}</span>
-          ${isDone ? `<span class="done-by-badge">✓ ทำเสร็จโดย ${escapeHtml(task.assignee || state.currentUser)}</span>` : ''}
+          ${isDone ? `<span class="done-by-badge">✓ ทำเสร็จโดย ${escapeHtml(task.assignee || task.updatedBy || 'ผู้ทำ')}</span>` : ''}
         </div>
 
         ${task.description ? `<p class="task-desc">${escapeHtml(task.description)}</p>` : ''}
@@ -999,7 +999,7 @@ function updateTaskItemElement(task) {
   // Update Done By Badge
   let doneBadge = card.querySelector('.done-by-badge');
   if (isDone) {
-    const doneUser = task.assignee || state.currentUser;
+    const doneUser = task.assignee || task.updatedBy || 'ผู้ทำ';
     if (!doneBadge) {
       doneBadge = document.createElement('span');
       doneBadge.className = 'done-by-badge';
