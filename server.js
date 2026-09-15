@@ -448,11 +448,15 @@ app.get('/api/stats', (req, res) => {
   });
 });
 
-// Start Server
-server.listen(PORT, () => {
-  console.log(`====================================================`);
-  console.log(`🚀 Roblox Trash to Riches Dev Tracker is running!`);
-  console.log(`🌐 Local URL: http://localhost:${PORT}`);
-  console.log(`⚡ Supabase DB Integration & 1s Realtime Sync Ready!`);
-  console.log(`====================================================`);
-});
+// Start Server (Local or Vercel Serverless Function)
+if (require.main === module) {
+  server.listen(PORT, () => {
+    console.log(`====================================================`);
+    console.log(`🚀 Roblox Trash to Riches Dev Tracker is running!`);
+    console.log(`🌐 Local URL: http://localhost:${PORT}`);
+    console.log(`⚡ Supabase DB Integration & 1s Realtime Sync Ready!`);
+    console.log(`====================================================`);
+  });
+}
+
+module.exports = app;
