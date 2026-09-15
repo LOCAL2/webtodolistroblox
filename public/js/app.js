@@ -231,10 +231,9 @@ async function fetchTasks() {
       state.tasks = mergedTasks;
       state.activityLogs = data.activityLogs || [];
 
-      if (prevTasksJson !== nextTasksJson) {
-        renderOverview();
-        renderPhaseNav();
-        state.tasks.forEach(t => updateTaskItemElement(t));
+      if (!state.hasInitialRender || prevTasksJson !== nextTasksJson) {
+        state.hasInitialRender = true;
+        renderAll();
       }
     }
   } catch (err) {
