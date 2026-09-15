@@ -111,6 +111,7 @@ const sounds = new SoundManager();
 
 // DOM Elements Cache
 const DOM = {
+  connectionStatus: document.getElementById('connectionStatus'),
   openUserModalBtn: document.getElementById('openUserModalBtn'),
   userSelectModal: document.getElementById('userSelectModal'),
   userCardBtns: document.querySelectorAll('#userSelectModal .user-card-btn'),
@@ -160,6 +161,7 @@ const DOM = {
   cancelDetailBtn: document.getElementById('cancelDetailBtn'),
   saveDetailBtn: document.getElementById('saveDetailBtn'),
   deleteTaskBtn: document.getElementById('deleteTaskBtn'),
+  detailPhaseTag: document.getElementById('detailPhaseTag'),
   detailTitleInput: document.getElementById('detailTitleInput'),
   detailDescInput: document.getElementById('detailDescInput'),
   detailCategoryInput: document.getElementById('detailCategoryInput'),
@@ -239,12 +241,15 @@ function connectWebSocket() {
 }
 
 function updateConnectionUI(connected) {
+  if (!DOM.connectionStatus) return;
   if (connected) {
     DOM.connectionStatus.classList.add('connected');
-    DOM.connectionStatus.querySelector('.status-label').textContent = 'Live Sync Connected';
+    const lbl = DOM.connectionStatus.querySelector('.status-label');
+    if (lbl) lbl.textContent = 'Live Sync Connected';
   } else {
     DOM.connectionStatus.classList.remove('connected');
-    DOM.connectionStatus.querySelector('.status-label').textContent = 'Connecting...';
+    const lbl = DOM.connectionStatus.querySelector('.status-label');
+    if (lbl) lbl.textContent = 'Connecting...';
   }
 }
 
@@ -609,7 +614,9 @@ function openDetailModal(task, focusField = 'title') {
   state.selectedTask = task;
   const phase = state.phases.find((p) => p.id === task.phaseId);
 
-  DOM.detailPhaseTag.textContent = phase ? `Phase ${phase.number}: ${phase.name}` : task.phaseId;
+  if (DOM.detailPhaseTag) {
+    DOM.detailPhaseTag.textContent = phase ? `Phase ${phase.number}: ${phase.name}` : task.phaseId;
+  }
   DOM.detailTitleInput.value = task.title || '';
   DOM.detailDescInput.value = task.description || '';
   DOM.detailCategoryInput.value = task.category || '';
