@@ -74,8 +74,9 @@ function saveLocalData(data) {
   }
 }
 
-// Cache state in memory for fast 1s updates
+// Cache state in memory for fast updates
 let inMemoryData = loadLocalData();
+const taskLastModified = new Map();
 
 // Sync with Supabase if connected
 async function syncFromSupabase() {
@@ -85,8 +86,8 @@ async function syncFromSupabase() {
     const { data: dbLogs, error: logErr } = await supabase.from('activity_logs').select('*').order('timestamp', { ascending: false }).limit(50);
 
     if (!taskErr && dbTasks && dbTasks.length > 0) {
-      // Map Supabase DB rows to app task objects
-      inMemoryData.tasks = dbTasks.map(t => ({
+      const now = Date.now();
+      const mappedDbTasks = dbTasks.map(t => ({
         id: t.id,
         phaseId: t.phase_id,
         title: t.title,
@@ -99,6 +100,28 @@ async function syncFromSupabase() {
         completedAt: t.completed_at,
         updatedBy: t.updated_by || ''
       }));
+
+      // Preserve local in-memory version if modified within last 10 seconds
+      const mergedTasks = mappedDbTasks.map(dbTask => {
+        const lastMod = taskLastModified.get(dbTask.id) || 0;
+        if (now - lastMod < 10000) {
+          const localTask = inMemoryData.tasks.find(t => t.id === dbTask.id);
+          return localTask || dbTask;
+        }
+        return dbTask;
+      });
+
+      // Keep custom tasks created locally
+      inMemoryData.tasks.forEach(localTask => {
+        if (!mergedTasks.some(m => m.id === localTask.id)) {
+          const lastMod = taskLastModified.get(localTask.id) || 0;
+          if (now - lastMod < 10000) {
+            mergedTasks.push(localTask);
+          }
+        }
+      });
+
+      inMemoryData.tasks = mergedTasks;
     }
 
     if (!logErr && dbLogs) {
@@ -206,6 +229,7 @@ app.get('/api/tasks', (req, res) => {
 app.patch('/api/tasks/:id', async (req, res) => {
   const taskId = req.params.id;
   const updates = req.body;
+  taskLastModified.set(taskId, Date.now());
   const taskIndex = inMemoryData.tasks.findIndex((t) => t.id === taskId);
 
   if (taskIndex === -1) {

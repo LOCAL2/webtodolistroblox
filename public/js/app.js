@@ -204,6 +204,7 @@ function showToast(message, type = 'info') {
 
 // REST Fetch & Polling Fallback for Vercel Serverless
 let pollTimer = null;
+const userInteractedTasks = new Map();
 
 async function fetchTasks() {
   try {
@@ -211,9 +212,30 @@ async function fetchTasks() {
     if (res.ok) {
       const data = await res.json();
       state.phases = data.phases || state.phases || [];
-      state.tasks = data.tasks || [];
+      const newTasks = data.tasks || [];
+      const now = Date.now();
+
+      // Smart merge to prevent client UI flicker
+      const mergedTasks = newTasks.map(serverTask => {
+        const lastLocalInteract = userInteractedTasks.get(serverTask.id) || 0;
+        if (now - lastLocalInteract < 5000) {
+          const currentLocalTask = state.tasks.find(t => t.id === serverTask.id);
+          return currentLocalTask || serverTask;
+        }
+        return serverTask;
+      });
+
+      const prevTasksJson = JSON.stringify(state.tasks);
+      const nextTasksJson = JSON.stringify(mergedTasks);
+
+      state.tasks = mergedTasks;
       state.activityLogs = data.activityLogs || [];
-      renderAll();
+
+      if (prevTasksJson !== nextTasksJson) {
+        renderOverview();
+        renderPhaseNav();
+        state.tasks.forEach(t => updateTaskItemElement(t));
+      }
     }
   } catch (err) {
     console.error('Fetch tasks error:', err);
@@ -1045,6 +1067,7 @@ function attachTaskEventListeners() {
       const task = state.tasks.find((t) => t.id === taskId);
       if (!task) return;
 
+      userInteractedTasks.set(taskId, Date.now());
       const newStatus = e.target.checked ? 'done' : 'todo';
       task.status = newStatus;
 
