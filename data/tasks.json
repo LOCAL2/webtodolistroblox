@@ -118,9 +118,9 @@
       "category": "Player System",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
-      "notes": "",
       "priority": "high",
+      "notes": "",
+      "completedAt": null,
       "updatedBy": "Time"
     },
     {
@@ -131,10 +131,10 @@
       "category": "Player System",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
-      "notes": "",
       "priority": "high",
-      "updatedBy": "Time"
+      "notes": "",
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p1-t3",
@@ -144,9 +144,10 @@
       "category": "Player System",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p1-t4",
@@ -156,9 +157,10 @@
       "category": "Player System",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p1-t5",
@@ -168,9 +170,10 @@
       "category": "Trash Spawning",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p1-t6",
@@ -180,9 +183,10 @@
       "category": "Trash Spawning",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p1-t7",
@@ -192,9 +196,10 @@
       "category": "Trash Spawning",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p1-t8",
@@ -204,9 +209,10 @@
       "category": "Trash Spawning",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p1-t9",
@@ -216,9 +222,10 @@
       "category": "Selling System",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p1-t10",
@@ -228,9 +235,10 @@
       "category": "Selling System",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p1-t11",
@@ -240,9 +248,10 @@
       "category": "Verification",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p2-t1",
@@ -252,9 +261,10 @@
       "category": "Economy",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p2-t2",
@@ -264,9 +274,10 @@
       "category": "Economy",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p2-t3",
@@ -276,9 +287,10 @@
       "category": "Economy",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "low",
       "notes": "",
-      "priority": "low"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p2-t4",
@@ -288,9 +300,10 @@
       "category": "Upgrade System",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p2-t5",
@@ -300,9 +313,10 @@
       "category": "Upgrade System",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p2-t6",
@@ -312,9 +326,10 @@
       "category": "Upgrade System",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p2-t7",
@@ -324,9 +339,10 @@
       "category": "Upgrade System",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p2-t8",
@@ -336,9 +352,10 @@
       "category": "Upgrade System",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "low",
       "notes": "",
-      "priority": "low"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p3-t1",
@@ -348,9 +365,10 @@
       "category": "Loot Table",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p3-t2",
@@ -360,9 +378,10 @@
       "category": "Item Design",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p3-t3",
@@ -372,9 +391,10 @@
       "category": "Item Design",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p3-t4",
@@ -384,9 +404,10 @@
       "category": "Item Design",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p3-t5",
@@ -396,9 +417,10 @@
       "category": "Item Design",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p3-t6",
@@ -408,9 +430,10 @@
       "category": "Visual FX",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "low",
       "notes": "",
-      "priority": "low"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p4-t1",
@@ -420,9 +443,10 @@
       "category": "Map Creation",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p4-t2",
@@ -432,9 +456,10 @@
       "category": "Map Creation",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p4-t3",
@@ -444,9 +469,10 @@
       "category": "Map Creation",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p4-t4",
@@ -456,9 +482,10 @@
       "category": "Map Creation",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p4-t5",
@@ -468,9 +495,10 @@
       "category": "Map Creation",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p4-t6",
@@ -480,9 +508,10 @@
       "category": "Map Creation",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p4-t7",
@@ -492,9 +521,10 @@
       "category": "Map Creation",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p4-t8",
@@ -504,9 +534,10 @@
       "category": "Map Creation",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p4-t9",
@@ -516,9 +547,10 @@
       "category": "Map Creation",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p4-t10",
@@ -528,9 +560,10 @@
       "category": "Map Creation",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p5-t1",
@@ -540,9 +573,10 @@
       "category": "Progression Gates",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p5-t2",
@@ -552,9 +586,10 @@
       "category": "Progression Gates",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p5-t3",
@@ -564,9 +599,10 @@
       "category": "UI HUD",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p5-t4",
@@ -576,9 +612,10 @@
       "category": "Data Persistence",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p6-t1",
@@ -588,9 +625,10 @@
       "category": "Vehicle Framework",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p6-t2",
@@ -600,9 +638,10 @@
       "category": "Vehicle Models",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p6-t3",
@@ -612,9 +651,10 @@
       "category": "Vehicle Models",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p6-t4",
@@ -624,9 +664,10 @@
       "category": "Vehicle Models",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p6-t5",
@@ -636,9 +677,10 @@
       "category": "Vehicle Models",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p6-t6",
@@ -648,9 +690,10 @@
       "category": "Vehicle Models",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p6-t7",
@@ -660,9 +703,10 @@
       "category": "Vehicle Models",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p6-t8",
@@ -672,9 +716,10 @@
       "category": "Vehicle Models",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p7-t1",
@@ -684,9 +729,10 @@
       "category": "Event Engine",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p7-t2",
@@ -696,9 +742,10 @@
       "category": "Events",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p7-t3",
@@ -708,9 +755,10 @@
       "category": "Events",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p7-t4",
@@ -720,9 +768,10 @@
       "category": "Events",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p7-t5",
@@ -732,9 +781,10 @@
       "category": "Events",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p7-t6",
@@ -744,9 +794,10 @@
       "category": "Events",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p8-t1",
@@ -756,9 +807,10 @@
       "category": "Social",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p8-t2",
@@ -768,9 +820,10 @@
       "category": "Social",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p8-t3",
@@ -780,9 +833,10 @@
       "category": "Social",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p8-t4",
@@ -792,9 +846,10 @@
       "category": "Social",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "low",
       "notes": "",
-      "priority": "low"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p9-t1",
@@ -804,9 +859,10 @@
       "category": "Gamepass",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p9-t2",
@@ -816,9 +872,10 @@
       "category": "Gamepass",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p9-t3",
@@ -828,9 +885,10 @@
       "category": "Gamepass",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p9-t4",
@@ -840,9 +898,10 @@
       "category": "Gamepass",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p9-t5",
@@ -852,9 +911,10 @@
       "category": "Gamepass",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p9-t6",
@@ -864,9 +924,10 @@
       "category": "Dev Products",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p9-t7",
@@ -876,9 +937,10 @@
       "category": "Cosmetics",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "low",
       "notes": "",
-      "priority": "low"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p10-t1",
@@ -888,9 +950,10 @@
       "category": "Rebirth Logic",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p10-t2",
@@ -900,9 +963,10 @@
       "category": "Rebirth Logic",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p10-t3",
@@ -912,9 +976,10 @@
       "category": "Buffs",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p10-t4",
@@ -924,9 +989,10 @@
       "category": "Endgame Content",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p11-t1",
@@ -936,9 +1002,10 @@
       "category": "QA Testing",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p11-t2",
@@ -948,9 +1015,10 @@
       "category": "Security",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p11-t3",
@@ -960,9 +1028,10 @@
       "category": "Game Balance",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p11-t4",
@@ -972,9 +1041,10 @@
       "category": "Cross-Platform",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p11-t5",
@@ -984,9 +1054,10 @@
       "category": "Community QA",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p12-t1",
@@ -996,9 +1067,10 @@
       "category": "Launch Event",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p12-t2",
@@ -1008,9 +1080,10 @@
       "category": "Marketing & Assets",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p12-t3",
@@ -1020,9 +1093,10 @@
       "category": "Marketing & Assets",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "medium",
       "notes": "",
-      "priority": "medium"
+      "completedAt": null,
+      "updatedBy": ""
     },
     {
       "id": "p12-t4",
@@ -1032,461 +1106,39 @@
       "category": "Launch Day",
       "status": "todo",
       "assignee": "",
-      "completedAt": null,
+      "priority": "high",
       "notes": "",
-      "priority": "high"
+      "completedAt": null,
+      "updatedBy": ""
     }
   ],
   "activityLogs": [
     {
-      "id": "log_1789487686401_mib1",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "changed \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\" status to todo",
-      "timestamp": "2026-09-15T15:54:46.401Z"
-    },
-    {
-      "id": "log_1789487685605_psal",
+      "id": "log_1789487849816_1snf",
       "taskId": "p1-t1",
       "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
       "phaseId": "phase-1",
       "user": "Time",
       "action": "marked \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\" as Done",
-      "timestamp": "2026-09-15T15:54:45.605Z"
+      "timestamp": "2026-09-15T15:57:29.816+00:00"
     },
     {
-      "id": "log_1789487292472_kkcc",
+      "id": "log_1789487842844_fmve",
       "taskId": "p1-t1",
       "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
       "phaseId": "phase-1",
       "user": "Time",
       "action": "changed \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\" status to todo",
-      "timestamp": "2026-09-15T15:48:12.472Z"
+      "timestamp": "2026-09-15T15:57:22.844+00:00"
     },
     {
-      "id": "log_1789487290395_a9ob",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "updated \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\"",
-      "timestamp": "2026-09-15T15:48:10.395Z"
-    },
-    {
-      "id": "log_1789487290024_p239",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "updated \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\"",
-      "timestamp": "2026-09-15T15:48:10.024Z"
-    },
-    {
-      "id": "log_1789487289714_vwoq",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "updated \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\"",
-      "timestamp": "2026-09-15T15:48:09.714Z"
-    },
-    {
-      "id": "log_1789487281622_rj5i",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "updated \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\"",
-      "timestamp": "2026-09-15T15:48:01.622Z"
-    },
-    {
-      "id": "log_1789487280482_ccd4",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "updated \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\"",
-      "timestamp": "2026-09-15T15:48:00.482Z"
-    },
-    {
-      "id": "log_1789487279045_96k6",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "updated \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\"",
-      "timestamp": "2026-09-15T15:47:59.045Z"
-    },
-    {
-      "id": "log_1789487278585_9jsk",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "updated \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\"",
-      "timestamp": "2026-09-15T15:47:58.585Z"
-    },
-    {
-      "id": "log_1789487276519_h93i",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "updated \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\"",
-      "timestamp": "2026-09-15T15:47:56.519Z"
-    },
-    {
-      "id": "log_1789487275920_ixes",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "updated \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\"",
-      "timestamp": "2026-09-15T15:47:55.920Z"
-    },
-    {
-      "id": "log_1789487275058_dyxu",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "updated \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\"",
-      "timestamp": "2026-09-15T15:47:55.058Z"
-    },
-    {
-      "id": "log_1789487273995_za1r",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "updated \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\"",
-      "timestamp": "2026-09-15T15:47:53.995Z"
-    },
-    {
-      "id": "log_1789487273207_nho3",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "updated \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\"",
-      "timestamp": "2026-09-15T15:47:53.207Z"
-    },
-    {
-      "id": "log_1789487272171_eggl",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "updated \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\"",
-      "timestamp": "2026-09-15T15:47:52.171Z"
-    },
-    {
-      "id": "log_1789487271998_4qut",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "updated \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\"",
-      "timestamp": "2026-09-15T15:47:51.998Z"
-    },
-    {
-      "id": "log_1789487252136_1stx",
+      "id": "log_1789487838025_w0eb",
       "taskId": "p1-t1",
       "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
       "phaseId": "phase-1",
       "user": "Time",
       "action": "marked \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\" as Done",
-      "timestamp": "2026-09-15T15:47:32.136Z"
-    },
-    {
-      "id": "log_1789487251437_s24g",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "changed \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\" status to todo",
-      "timestamp": "2026-09-15T15:47:31.437Z"
-    },
-    {
-      "id": "log_1789487250395_gv6q",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "marked \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\" as Done",
-      "timestamp": "2026-09-15T15:47:30.396Z"
-    },
-    {
-      "id": "log_1789487249563_h9lp",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "updated \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\"",
-      "timestamp": "2026-09-15T15:47:29.563Z"
-    },
-    {
-      "id": "log_1789487249092_fcjw",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "updated \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\"",
-      "timestamp": "2026-09-15T15:47:29.093Z"
-    },
-    {
-      "id": "log_1789487248774_sp9k",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "updated \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\"",
-      "timestamp": "2026-09-15T15:47:28.774Z"
-    },
-    {
-      "id": "log_1789487248067_qbh2",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "changed \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\" status to todo",
-      "timestamp": "2026-09-15T15:47:28.067Z"
-    },
-    {
-      "id": "log_1789487247466_sb1f",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "marked \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\" as Done",
-      "timestamp": "2026-09-15T15:47:27.466Z"
-    },
-    {
-      "id": "log_1789487246551_cwkq",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "updated \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\"",
-      "timestamp": "2026-09-15T15:47:26.551Z"
-    },
-    {
-      "id": "log_1789487246071_ff7r",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "updated \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\"",
-      "timestamp": "2026-09-15T15:47:26.071Z"
-    },
-    {
-      "id": "log_1789487245536_8c9e",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "updated \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\"",
-      "timestamp": "2026-09-15T15:47:25.536Z"
-    },
-    {
-      "id": "log_1789487179524_yst5",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "updated \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\"",
-      "timestamp": "2026-09-15T15:46:19.524Z"
-    },
-    {
-      "id": "log_1789487099126_suc7",
-      "taskId": "p1-t2",
-      "taskTitle": "ระบบผู้เล่น: ตัวแปรเงิน Cash ($)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "updated \"ระบบผู้เล่น: ตัวแปรเงิน Cash ($)\"",
-      "timestamp": "2026-09-15T15:44:59.126Z"
-    },
-    {
-      "id": "log_1789487098508_l8wj",
-      "taskId": "p1-t2",
-      "taskTitle": "ระบบผู้เล่น: ตัวแปรเงิน Cash ($)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "updated \"ระบบผู้เล่น: ตัวแปรเงิน Cash ($)\"",
-      "timestamp": "2026-09-15T15:44:58.508Z"
-    },
-    {
-      "id": "log_1789487097690_zq0n",
-      "taskId": "p1-t2",
-      "taskTitle": "ระบบผู้เล่น: ตัวแปรเงิน Cash ($)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "changed \"ระบบผู้เล่น: ตัวแปรเงิน Cash ($)\" status to todo",
-      "timestamp": "2026-09-15T15:44:57.690Z"
-    },
-    {
-      "id": "log_1789487097067_ihdz",
-      "taskId": "p1-t2",
-      "taskTitle": "ระบบผู้เล่น: ตัวแปรเงิน Cash ($)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "marked \"ระบบผู้เล่น: ตัวแปรเงิน Cash ($)\" as Done",
-      "timestamp": "2026-09-15T15:44:57.067Z"
-    },
-    {
-      "id": "log_1789487095647_1hfl",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "changed \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\" status to todo",
-      "timestamp": "2026-09-15T15:44:55.647Z"
-    },
-    {
-      "id": "log_1789487093666_t79e",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "marked \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\" as Done",
-      "timestamp": "2026-09-15T15:44:53.666Z"
-    },
-    {
-      "id": "log_1789487036829_i021",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "changed \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\" status to todo",
-      "timestamp": "2026-09-15T15:43:56.829Z"
-    },
-    {
-      "id": "log_1789487035990_kdks",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "marked \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\" as Done",
-      "timestamp": "2026-09-15T15:43:55.990Z"
-    },
-    {
-      "id": "log_1789487035321_jddr",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "changed \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\" status to todo",
-      "timestamp": "2026-09-15T15:43:55.321Z"
-    },
-    {
-      "id": "log_1789487033616_tp50",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Time",
-      "action": "marked \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\" as Done",
-      "timestamp": "2026-09-15T15:43:53.616Z"
-    },
-    {
-      "id": "log_1789486942138_nnuh",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Satang",
-      "action": "changed \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\" status to todo",
-      "timestamp": "2026-09-15T15:42:22.138Z"
-    },
-    {
-      "id": "log_1789486940987_yy3g",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Satang",
-      "action": "marked \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\" as Done",
-      "timestamp": "2026-09-15T15:42:20.987Z"
-    },
-    {
-      "id": "log_1789486939712_ls6s",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Satang",
-      "action": "changed \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\" status to testing",
-      "timestamp": "2026-09-15T15:42:19.712Z"
-    },
-    {
-      "id": "log_1789486938668_updo",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Satang",
-      "action": "changed \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\" status to in_progress",
-      "timestamp": "2026-09-15T15:42:18.668Z"
-    },
-    {
-      "id": "log_1789486937126_41c6",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Satang",
-      "action": "changed \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\" status to todo",
-      "timestamp": "2026-09-15T15:42:17.126Z"
-    },
-    {
-      "id": "log_1789486935547_p53x",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Satang",
-      "action": "changed \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\" status to in_progress",
-      "timestamp": "2026-09-15T15:42:15.547Z"
-    },
-    {
-      "id": "log_1789486934364_wibr",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Satang",
-      "action": "changed \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\" status to todo",
-      "timestamp": "2026-09-15T15:42:14.364Z"
-    },
-    {
-      "id": "log_1789486933469_jkyy",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Satang",
-      "action": "updated \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\"",
-      "timestamp": "2026-09-15T15:42:13.469Z"
-    },
-    {
-      "id": "log_1789486932985_tek4",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Satang",
-      "action": "updated \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\"",
-      "timestamp": "2026-09-15T15:42:12.985Z"
-    },
-    {
-      "id": "log_1789486932425_ovkn",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Satang",
-      "action": "marked \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\" as Done",
-      "timestamp": "2026-09-15T15:42:12.425Z"
-    },
-    {
-      "id": "log_1789486931389_ulmw",
-      "taskId": "p1-t1",
-      "taskTitle": "ระบบผู้เล่น: จุดเกิด (Spawn Location)",
-      "phaseId": "phase-1",
-      "user": "Satang",
-      "action": "updated \"ระบบผู้เล่น: จุดเกิด (Spawn Location)\"",
-      "timestamp": "2026-09-15T15:42:11.389Z"
+      "timestamp": "2026-09-15T15:57:18.025+00:00"
     }
   ]
 }
